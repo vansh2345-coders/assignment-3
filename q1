@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+class Stack{
+    static const int Max=10;
+    int top=-1;
+    int st[Max];
+    public:
+    void push(int x){
+        if(top== Max-1) cout<<"stack overflow";
+        else{ top++;
+            st[top] = x;
+        }
+        }
+    int peek(){
+        if(top==-1) {cout<<"stack is empty";
+        return -1;}
+        else {return st[top];
+        }
+    }
+    void pop(){
+        if(top==-1) cout<<"stack underflow";
+        else top = top-1;
+    }
+    bool isEmpty(){
+        return (top==-1);
+    }
+    bool isFull(){
+        return (top==Max -1);
+    }
+    void display(){
+        if(isEmpty()){
+            cout<<"Stack is empty\n";
+        }else{
+            cout<<"Stack elements: ";
+            for (int i = top;i>=0;i--) {
+                cout<<st[i]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    };
+int main(){
+    Stack s;
+    s.push(4);
+    s.push(7);
+    s.push(10);
+    s.display();
+
+    cout<<"Top element is:"<< s.peek()<< endl;
+    s.pop();
+    s.display();
+    return 0;
+}
